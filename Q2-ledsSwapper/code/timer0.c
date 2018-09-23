@@ -70,8 +70,8 @@ void timer0_init_CTC_mode(unsigned char tick)
 	/* For clock=1Mhz and prescale F_CPU/1024 every count will take 1ms
 	 * so we just need 250 counts to get 250ms every overflow. put initial timer counter=0
 	 * and output compare register=250 0 --> 250 (250ms per overflow)
-	 * so we need timer to overflow 2 times to get a 0.5 second (fast)
-	 * 					   overflow 4 times to get a 0.5 second (slow)
+	 * so we need timer to overflow 1 times to get a 0.25 second (fast)
+	 * 		       overflow 4 times to get a 1 second (slow)
 	 */
 	TCNT0 = 0; //timer initial value
 	OCR0  = tick; //compare value
